@@ -11,8 +11,9 @@ connect.once('open', function() {
 });
 
 const findByUuid = (uuid, callback)=>{
-    callback('1','2');
+    
     connect.db.collection('images', (err, collection)=>{
+        callback('1','2');
         if (err) {callback('eASOKSODKAOSKDO',null)}
         collection.find({_id: uuid}).toArray(function(err, data){
             callback('WE DID NOT FIND ANYTHING', data); // it will print your collection data
