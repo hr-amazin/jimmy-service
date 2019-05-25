@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const mongopath = 'mongodb://heroku_fscfdghg:ifnsidoi8f7ai9qvadq1hie8j@ds261626.mlab.com:61626/heroku_fscfdghg' || 'mongodb://localhost/amazin';
+const imagearray = require('./images.js');
 mongoose.connect(mongopath, {useNewUrlParser: true});
+
 
 
 const connect = mongoose.connection;
@@ -8,6 +10,8 @@ connect.on('error', console.error.bind(console, 'connection error:'));
 connect.once('open', function() {
    //you can write mongo native syntax in here once connected.
     // console.log(connect, 'this is your connect')
+   connect.dropCollection("images", (err, result)=> {if (err){ console.log('error delete collection')
+    } else {console.log('delete collection success');}});
    var imagesSchema = mongoose.Schema({
        _id: Number,
        name: String,
@@ -15,16 +19,8 @@ connect.once('open', function() {
    });
     
    var image = mongoose.model('images', imagesSchema);
-   var sampleImages = [{_id: 1000, 
-    name: 'Lenovo ThinkCentre M92p Business Desktop Computer - Intel Core i7 Up to 3.9GHz, 16GB RAM, 480GB SSD, Windows 10 Pro',
-    images: ['https://s3.amazonaws.com/fec.amazin/1000_1.jpg', 'https://s3.amazonaws.com/fec.amazin/1000_2.jpg', 'https://s3.amazonaws.com/fec.amazin/1000_3.jpg', 'https://s3.amazonaws.com/fec.amazin/1000_4.jpg']
-   },
-   {_id: 1001, 
-    name: 'CYBERPOWERPC Gamer Xtreme VR GXiVR8080A4 Gaming PC (Liquid Cooled Intel i7-9700K 3.6GHz, 16GB DDR4, NVIDIA GeForce RTX 2080 8GB, 240GB SSD, 1TB HDD, WiFi & Win 10 Home) Black',
-    images: ['https://s3.amazonaws.com/fec.amazin/1001_1.jpg', 'https://s3.amazonaws.com/fec.amazin/1001_2.jpg', 'https://s3.amazonaws.com/fec.amazin/1001_3.jpg', 'https://s3.amazonaws.com/fec.amazin/1001_4.jpg']
-   },
-]
-    image.collection.insertMany(sampleImages, (err,docs)=>{if (err) {console.log('docs not inserted')} else {console.log('docs inserted')}});
+   
+    image.collection.insertMany(imagearray, (err,docs)=>{if (err) {console.log(err)} else {console.log('docs inserted')}});
 });
 
 const findByUuid = (uuid, callback)=>{

@@ -6,8 +6,9 @@ app.use(express.json());
 app.use(express.static('./public'))
 
 
-app.get('/api/images', (req, res)=>{
-    findByUuid(1001, (err, data)=>{
+app.get('/api/images/:id', (req, res)=>{
+    // console.log(req.params.id)
+    findByUuid(parseInt(req.params.id), (err, data)=>{
       if(err){ res.send(err); 
       } else {
           res.send(data);
