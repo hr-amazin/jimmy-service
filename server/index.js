@@ -14,4 +14,9 @@ app.get('/api/images', (req, res)=>{
       } 
     }) 
 })
+
+app.get('/api/helloworld', (req, res)=>{
+  res.end('helloworld');
+})
+
 app.listen(port, ()=>{console.log('listening at port:',port)})
