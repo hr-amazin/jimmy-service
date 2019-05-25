@@ -12,9 +12,9 @@ connect.once('open', function() {
 
 const findByUuid = (uuid, callback)=>{
     connect.db.collection('images', (err, collection)=>{
-        if (err) {callback('eASOKSODKAOSKDO')}
+        if (err) {callback('eASOKSODKAOSKDO',null)}
         collection.find({_id: uuid}).toArray(function(err, data){
-            callback(err, data); // it will print your collection data
+            callback('WE DID NOT FIND ANYTHING', data); // it will print your collection data
         })
     })
 }
