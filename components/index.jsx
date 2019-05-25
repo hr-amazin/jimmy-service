@@ -19,7 +19,7 @@ class App extends React.Component {
 
   componentDidMount(){
     axios.get('/api/images')
-    .then((response)=> {this.setState({images: response.data[0].images})})
+    .then((response)=> {this.setState({main: response.data[0].images[0]});this.setState({images: response.data[0].images})})
   }
 
   imgHover(img){
