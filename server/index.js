@@ -8,7 +8,7 @@ app.use(express.static('./public'))
 
 app.get('/api/images', (req, res)=>{
     findByUuid(1001, (err, data)=>{
-      if(err){ res.send(err, 'thisiserror')
+      if(err){ res.send(err);
       } else {
           res.send(data);
       } 
