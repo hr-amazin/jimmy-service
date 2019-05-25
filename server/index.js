@@ -2,6 +2,9 @@ const express = require('express');
 const app = express();
 const {findByUuid} = require('../db/index.js');
 const port = process.env.PORT || 8080;
+const cors = require('cors');
+
+app.use(cors());
 
 app.use(express.json());
 app.use(express.static('./public'));
