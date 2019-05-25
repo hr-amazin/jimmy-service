@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom'
 import axios from 'axios';
+import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
 // console.log(React);
 
 class App extends React.Component {
@@ -19,7 +20,8 @@ class App extends React.Component {
   }
 
   componentDidMount(){
-    axios.get('/api/images/1005')
+    console.log(this.props);
+    axios.get('https://shrouded-ravine-99591.herokuapp.com/api/images')
     .then((response)=> {this.setState({main: response.data[0].images[0]});this.setState({images: response.data[0].images})})
     .catch((err)=> {console.log(err, 'this is my error')})
   }
@@ -56,4 +58,13 @@ class App extends React.Component {
 }
 
 
-ReactDOM.render(<App/>, document.getElementById('image'));
+const Routing = (props) => (
+  <Router>
+    <div>
+      <Route exact path="/" component={App} />
+      <Route path="/:id" component={App} />
+    </div>
+  </Router>
+)
+
+ReactDOM.render(<Routing />, document.getElementById('image'));
