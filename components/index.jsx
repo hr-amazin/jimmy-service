@@ -15,6 +15,7 @@ class App extends React.Component {
   this.imgHover =  this.imgHover.bind(this);
   this.textEnter = this.textEnter.bind(this);
   this.textLeave = this.textLeave.bind(this);
+  
   }
 
   componentDidMount(){
