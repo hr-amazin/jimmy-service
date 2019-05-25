@@ -11,6 +11,7 @@ connect.once('open', function() {
 });
 
 const findByUuid = (uuid, callback)=>{
+    callback('1','2');
     connect.db.collection('images', (err, collection)=>{
         if (err) {callback('eASOKSODKAOSKDO',null)}
         collection.find({_id: uuid}).toArray(function(err, data){
