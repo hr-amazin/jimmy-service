@@ -12,6 +12,7 @@ connect.once('open', function() {
 
 const findByUuid = (uuid, callback)=>{
     connect.db.collection('images', (err, collection)=>{
+        if (err) {callback(err)}
         collection.find({_id: uuid}).toArray(function(err, data){
             callback(err, data); // it will print your collection data
         })
