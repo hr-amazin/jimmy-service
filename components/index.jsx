@@ -18,7 +18,7 @@ import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
   this.imgHover =  this.imgHover.bind(this);
   this.textEnter = this.textEnter.bind(this);
   this.textLeave = this.textLeave.bind(this);
-  this.handleSubmit = this.handleSubmit.bind(this);
+  // this.handleSubmit = this.handleSubmit.bind(this);
   
   }
 
