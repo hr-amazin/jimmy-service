@@ -10,7 +10,6 @@ import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
   constructor(props){
     super(props);
     this.state ={
-      uuid: this.props.uuid,
       word:'',
       text: "Roll over image to zoom in",
       main: "https://s3.amazonaws.com/fec.amazin/1000_1.jpg",
@@ -30,10 +29,12 @@ import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
     // .catch((err)=> {console.log(err, 'this is my error')})
   }
 
-  componentDidUpdate(){
+  componentDidUpdate(prevProps){
+    if(prevProps.uuid !== this.props.uuid){
      axios.get(`https://shrouded-ravine-99591.herokuapp.com/api/images/${this.props.uuid}`)
-    .then((response)=> {this.setState({main: response.data[0].images[0]});this.setState({images: response.data[0].images})})
+    .then((response)=> {this.setState({main: response.data[0].images[0], images: response.data[0].images})})
     .catch((err)=> {console.log(err, 'this is my error')})
+    }
   }
 
   imgHover(img){
