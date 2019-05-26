@@ -83,5 +83,7 @@ import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
 
 ReactDOM.render(<Images />, document.getElementById('image'));
 
-const xyz = 1;
-window.jimmy = 'jimmy';
+console.log(Images);
+window.Images = Images;
+const imageone = new Images();
+window.imageone = imageone;
