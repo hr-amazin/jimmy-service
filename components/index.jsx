@@ -30,6 +30,12 @@ import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
     // .catch((err)=> {console.log(err, 'this is my error')})
   }
 
+  componentDidUpdate(){
+     axios.get(`https://shrouded-ravine-99591.herokuapp.com/api/images/${this.props.uuid}`)
+    .then((response)=> {this.setState({main: response.data[0].images[0]});this.setState({images: response.data[0].images})})
+    .catch((err)=> {console.log(err, 'this is my error')})
+  }
+
   imgHover(img){
     this.setState({main: img});
   }
