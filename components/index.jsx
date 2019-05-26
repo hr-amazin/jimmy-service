@@ -5,7 +5,7 @@ import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
 
 // console.log(React);
 
-export default class Images extends React.Component {
+ class Images extends React.Component {
 
   constructor(props){
     super(props);
@@ -83,3 +83,5 @@ export default class Images extends React.Component {
 
 ReactDOM.render(<Images />, document.getElementById('image'));
 
+const a = 1;
+module.exports = {Images, a};
