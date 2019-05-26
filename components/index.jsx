@@ -10,6 +10,7 @@ import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
   constructor(props){
     super(props);
     this.state ={
+      uuid: this.props.uuid,
       word:'',
       text: "Roll over image to zoom in",
       main: "https://s3.amazonaws.com/fec.amazin/1000_1.jpg",
