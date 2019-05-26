@@ -2,14 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom'
 import axios from 'axios';
 import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
-import cors from 'cors';
+
 // console.log(React);
 
-class App extends React.Component {
+class Images extends React.Component {
 
   constructor(props){
     super(props);
     this.state ={
+      word:'',
       text: "Roll over image to zoom in",
       main: "https://s3.amazonaws.com/fec.amazin/1000_1.jpg",
       images: ["https://s3.amazonaws.com/fec.amazin/1000_1.jpg", "https://s3.amazonaws.com/fec.amazin/1000_2.jpg", "https://s3.amazonaws.com/fec.amazin/1000_3.jpg", "https://s3.amazonaws.com/fec.amazin/1000_4.jpg"]
@@ -17,15 +18,17 @@ class App extends React.Component {
   this.imgHover =  this.imgHover.bind(this);
   this.textEnter = this.textEnter.bind(this);
   this.textLeave = this.textLeave.bind(this);
+  this.handleSubmit = this.handleSubmit.bind(this);
   
   }
 
-  componentDidMount(){
-    console.log(this.props);
-    axios.get('https://shrouded-ravine-99591.herokuapp.com/api/images')
-    .then((response)=> {this.setState({main: response.data[0].images[0]});this.setState({images: response.data[0].images})})
-    .catch((err)=> {console.log(err, 'this is my error')})
-  }
+  // componentDidMount(){
+  //   console.log(this.props);
+    
+  //   axios.get('https://shrouded-ravine-99591.herokuapp.com/api/images')
+  //   .then((response)=> {this.setState({main: response.data[0].images[0]});this.setState({images: response.data[0].images})})
+  //   .catch((err)=> {console.log(err, 'this is my error')})
+  // }
 
   imgHover(img){
     this.setState({main: img});
@@ -37,9 +40,21 @@ class App extends React.Component {
     this.setState({text: "Roll over image to zoom in" });
   }
 
+  handleSubmit(e){
+    e.preventDefault();
+    axios.get(`./api/images/${parseInt(this.state.word)}`)
+    .then((response)=> {this.setState({main: response.data[0].images[0]});this.setState({images: response.data[0].images})})
+    .catch((err)=> {console.log(err, 'this is my error')})
+  }
+
   render(){
     return (
     <>
+     <form onSubmit={this.handleSubmit}>
+      <input type="text" onChange={(e)=>{e.preventDefault(); this.setState({word: e.target.value})}}/>
+      <input type="submit"/>
+    </form>
+     
       <div class="main">
       <div class="col-1">
       {this.state.images.map((img)=> (<div class="thumbnail" onMouseEnter={()=>{this.imgHover(img)}}><img src={img}></img></div>))}
@@ -59,13 +74,15 @@ class App extends React.Component {
 }
 
 
-const Routing = (props) => (
-  <Router>
-    <div>
-      <Route exact path="/" component={App} />
-      <Route path="/:id" component={App} />
-    </div>
-  </Router>
-)
+// const Routing = (props) => (
+//   <Router>
+//     <div>
+//       <Route exact path="/" component={App} />
+//       <Route path="/:id" component={App} />
+//     </div>
+//   </Router>
+// )
 
-ReactDOM.render(<Routing />, document.getElementById('image'));
+ReactDOM.render(<Images />, document.getElementById('image'));
+
+module.exports = Images;

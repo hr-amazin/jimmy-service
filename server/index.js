@@ -5,7 +5,6 @@ const port = process.env.PORT || 8080;
 const cors = require('cors');
 
 app.use(cors());
-
 app.use(express.json());
 app.use(express.static('./public'));
 
@@ -27,6 +26,7 @@ app.get('/api/images/:id', (req, res)=>{
   findByUuid(parseInt(req.params.id) || 1005, (err, data)=>{
     if(err){ res.send(err); 
     } else {
+        // console.log(data);
         res.send(data);
     } 
   }) 
