@@ -87,6 +87,6 @@ import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
 //     </div>
 //   </Router>
 // )
-// window.Images = Images;
+window.Images = Images;
 // const imageone = new Images();
 // window.imageone = imageone;
