@@ -47,20 +47,20 @@ import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
     this.setState({text: "Roll over image to zoom in" });
   }
 
-  handleSubmit(e){
-    e.preventDefault();
-    axios.get(`https://shrouded-ravine-99591.herokuapp.com/api/images/${parseInt(this.state.word)}`)
-    .then((response)=> {this.setState({main: response.data[0].images[0]});this.setState({images: response.data[0].images})})
-    .catch((err)=> {console.log(err, 'this is my error')})
-  }
+  // handleSubmit(e){
+  //   e.preventDefault();
+  //   axios.get(`https://shrouded-ravine-99591.herokuapp.com/api/images/${parseInt(this.state.word)}`)
+  //   .then((response)=> {this.setState({main: response.data[0].images[0]});this.setState({images: response.data[0].images})})
+  //   .catch((err)=> {console.log(err, 'this is my error')})
+  // }
 
   render(){
     return (
     <>
-     <form onSubmit={this.handleSubmit}>
+     {/* <form onSubmit={this.handleSubmit}>
       <input type="text" onChange={(e)=>{e.preventDefault(); this.setState({word: e.target.value})}}/>
       <input type="submit"/>
-    </form>
+    </form> */}
   
       <div class="main">
       <div class="col-1">
@@ -87,6 +87,6 @@ import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
 //     </div>
 //   </Router>
 // )
-window.Images = Images;
-const imageone = new Images();
-window.imageone = imageone;
+// window.Images = Images;
+// const imageone = new Images();
+// window.imageone = imageone;
