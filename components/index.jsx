@@ -42,7 +42,7 @@ class Images extends React.Component {
 
   handleSubmit(e){
     e.preventDefault();
-    axios.get(`./api/images/${parseInt(this.state.word)}`)
+    axios.get(`https://shrouded-ravine-99591.herokuapp.com/api/images/${parseInt(this.state.word)}`)
     .then((response)=> {this.setState({main: response.data[0].images[0]});this.setState({images: response.data[0].images})})
     .catch((err)=> {console.log(err, 'this is my error')})
   }
