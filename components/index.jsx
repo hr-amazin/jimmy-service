@@ -83,4 +83,4 @@ class Images extends React.Component {
 
 ReactDOM.render(<Images />, document.getElementById('image'));
 
-window.Images = Images;
+export default Images;
