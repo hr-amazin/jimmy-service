@@ -54,12 +54,10 @@ class Images extends React.Component {
       <input type="text" onChange={(e)=>{e.preventDefault(); this.setState({word: e.target.value})}}/>
       <input type="submit"/>
     </form>
-     
+  
       <div class="main">
       <div class="col-1">
       {this.state.images.map((img)=> (<div class="thumbnail" onMouseEnter={()=>{this.imgHover(img)}}><img src={img}></img></div>))}
-      
-    
       </div>
       <div class="col-2">
       <img id="mainimg" src={this.state.main} onMouseEnter={()=>{this.textEnter()}} onMouseLeave={()=>{this.textLeave()}}></img>
@@ -85,4 +83,4 @@ class Images extends React.Component {
 
 ReactDOM.render(<Images />, document.getElementById('image'));
 
-module.exports = Images;
+window.Images = Images;
