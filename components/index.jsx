@@ -83,5 +83,5 @@ import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
 
 ReactDOM.render(<Images />, document.getElementById('image'));
 
-const a = 1;
-module.exports = {Images, a};
+const xyz = 1;
+window.jimmy = 'jimmy';
