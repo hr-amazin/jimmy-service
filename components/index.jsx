@@ -55,6 +55,44 @@ import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
   // }
 
   render(){
+
+    const col1css = {
+      float: 'left',
+      width: '8%',
+      padding: '2px'
+
+    }
+
+    const col2css = {
+      'fontFamily': '"Amazon Ember",Arial, sans-serif',
+      color: '#555!important',
+      float: 'left',
+      width: '92%',
+      overflow:'hidden'
+
+    }
+
+    const imgcss = {
+        'maxWidth':'100%',
+        'maxHeight':'100%'
+    }
+
+    // const thumbnailhover = {
+    //   'borderRadius': '2px',
+    //   padding: '1px',
+    //   border: '1px solid #a2a6ac',
+    //   'marginBottom': '5px',
+    //   '&:hover': {
+    //   border: '1px solid orange',
+    //   'marginBottom': '5px',
+    //   cursor: 'pointer',
+    //   'boxShadow': '0 0 3px 2px rgba(228,121,17,.5)'
+    //   }
+    // }
+
+ 
+    // const thumbnailhover = this.state.thumbnailstate ? thumbnailOn : thumbnailOff; 
+  
     return (
     <>
      {/* <form onSubmit={this.handleSubmit}>
@@ -62,12 +100,12 @@ import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
       <input type="submit"/>
     </form> */}
   
-      <div class="main">
-      <div class="col-1">
-      {this.state.images.map((img)=> (<div class="thumbnail" onMouseEnter={()=>{this.imgHover(img)}}><img src={img}></img></div>))}
+      <div className="main">
+      <div className="col-1" style={col1css}>
+      {this.state.images.map((img, key)=> (<div><img className="thumbnail" style={imgcss} src={img}></img></div>))}
       </div>
-      <div class="col-2">
-      <img id="mainimg" src={this.state.main} onMouseEnter={()=>{this.textEnter()}} onMouseLeave={()=>{this.textLeave()}}></img>
+      <div className="col-2" style={col2css}>
+      <img  style={imgcss} id="mainimg" src={this.state.main} onMouseEnter={(e)=>{this.textEnter()}} onMouseLeave={()=>{this.textLeave()}}></img>
       <p>{this.state.text}</p>
       </div>
       

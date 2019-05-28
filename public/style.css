@@ -89,13 +89,13 @@ html, body{
     border: 2px green solid;
 }
 
-img {
+/* img {
 max-width:100%;
 max-height:100%;
 
-}
+} */
 
-.col-1 {
+/* .col-1 {
  
 float: left;
 width: 8%;
@@ -109,7 +109,7 @@ width: 8%;
     width: 92%;
     overflow:hidden;
     
-    }
+    } */
 
 .thumbnail {
     border-radius: 2px;
@@ -126,13 +126,12 @@ width: 8%;
     box-shadow: 0 0 3px 2px rgba(228,121,17,.5);
 }
 
-.col-1{
-    /* border: 1px solid purple; */
+/* .col-1{
+    border: 1px solid purple;
     padding: 2px;
-}
+} */
 
 /* #mainimg  */
 #mainimg:hover{
-    transform: scale(2);
-    
+    transform: scale(2);  
 }
