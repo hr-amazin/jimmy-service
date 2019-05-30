@@ -23,7 +23,7 @@ app.get('/api/images', (req, res)=>{
 
 app.get('/api/images/:id', (req, res)=>{
   // console.log(req.params.id)
-  findByUuid(parseInt(req.params.id) || 1005, (err, data)=>{
+  findByUuid(parseInt(req.params.id) || 1001, (err, data)=>{
     if(err){ res.send(err); 
     } else {
         // console.log(data);

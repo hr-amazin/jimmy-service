@@ -68,7 +68,8 @@ import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
       color: '#555!important',
       float: 'left',
       width: '92%',
-      overflow:'hidden'
+      overflow:'hidden',
+      textAlign: 'center'
 
     }
 
@@ -102,7 +103,7 @@ import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
   
       <div className="main">
       <div className="col-1" style={col1css}>
-      {this.state.images.map((img, key)=> (<div><img className="thumbnail" style={imgcss} src={img}></img></div>))}
+      {this.state.images.map((img, key)=> (<div><img className="thumbnail" style={imgcss} src={img} onMouseEnter={()=>{ this.imgHover(img)}}></img></div>))}
       </div>
       <div className="col-2" style={col2css}>
       <img  style={imgcss} id="mainimg" src={this.state.main} onMouseEnter={(e)=>{this.textEnter()}} onMouseLeave={()=>{this.textLeave()}}></img>
