@@ -12,8 +12,8 @@ import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
     this.state ={
       word:'',
       text: "Roll over image to zoom in",
-      main: "https://s3.amazonaws.com/fec.amazin/1000_1.jpg",
-      images: ["https://s3.amazonaws.com/fec.amazin/1000_1.jpg", "https://s3.amazonaws.com/fec.amazin/1000_2.jpg", "https://s3.amazonaws.com/fec.amazin/1000_3.jpg", "https://s3.amazonaws.com/fec.amazin/1000_4.jpg"]
+      main: "https://s3.amazonaws.com/fec.amazin/1001_1.jpg",
+      images: ["https://s3.amazonaws.com/fec.amazin/1001_1.jpg", "https://s3.amazonaws.com/fec.amazin/1001_2.jpg", "https://s3.amazonaws.com/fec.amazin/1001_3.jpg", "https://s3.amazonaws.com/fec.amazin/1001_4.jpg"]
     }
   this.imgHover =  this.imgHover.bind(this);
   this.textEnter = this.textEnter.bind(this);
