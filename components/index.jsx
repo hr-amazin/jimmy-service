@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom'
 import axios from 'axios';
 import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
 
+
+
 // console.log(React);
 
  class Images extends React.Component {
@@ -70,8 +72,9 @@ import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
       width: '92%',
       overflow:'hidden',
       textAlign: 'center'
-
+      
     }
+
 
     const imgcss = {
         'maxWidth':'100%',
@@ -106,10 +109,11 @@ import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
       {this.state.images.map((img, key)=> (<div><img className="thumbnail" style={imgcss} src={img} onMouseEnter={()=>{ this.imgHover(img)}}></img></div>))}
       </div>
       <div className="col-2" style={col2css}>
-      <img  style={imgcss} id="mainimg" src={this.state.main} onMouseEnter={(e)=>{this.textEnter()}} onMouseLeave={()=>{this.textLeave()}}></img>
+      <a className="magnifier-thumb-wrapper">
+      <img  style={imgcss} id="mainimg" src={this.state.main} onMouseEnter={(e)=>{}} onMouseLeave={()=>{}}></img>
       <p>{this.state.text}</p>
+      </a>
       </div>
-      
       </div>
       
     </>)
